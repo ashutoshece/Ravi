@@ -12,7 +12,12 @@ resource "azurerm_resource_group" "rg1" {
   name     = "rg-paras"
   location = "Central India"
 }
+
+resource "azurerm_resource_group" "rg3" {
+  name     = "rg-ankit"
+
 resource "azurerm_resource_group" "rgtcl" {
   name     = "rg_tcl"
+
   location = "Central India"
 }
