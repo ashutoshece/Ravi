@@ -1,0 +1,22 @@
+trigger: none
+pool: Devops_pool
+steps:
+  
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'azure-devops-sp'
+    backendAzureRmStorageAccountName: 'strgamish'
+    backendAzureRmContainerName: 'ravi'
+    backendAzureRmKey: 'terraform.tfstate'
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'azure-devops-sp'
